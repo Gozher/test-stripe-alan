@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\CreateSubscription;
 use App\Http\Livewire\CreatePoducts;
+use App\Http\Livewire\UniqueCharges;
 use App\Http\Controllers\StripeWebHookController;
 
 /*
@@ -27,5 +28,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::get('/sub', CreateSubscription::class)->name('sub');
 Route::get('/products', CreatePoducts::class)->name('products');
+Route::get('/unique-charges', UniqueCharges::class)->name('charges');
+
+
 
 Route::post('/stripe/webhook', [StripeWebHookController::class, 'handleWebhook']);
